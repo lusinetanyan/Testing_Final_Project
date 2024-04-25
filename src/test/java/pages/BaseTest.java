@@ -1,6 +1,7 @@
 package pages;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -28,7 +29,8 @@ public class BaseTest {
         homePage = new HomePage(driver);
     }
 
-    public void tearDown(){
+    @AfterAll
+    public static void tearDown(){
         driver.quit();
     }
 
