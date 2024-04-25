@@ -16,8 +16,6 @@ public class SecureAreaPage extends BasePage {
         super(driver);
     }
 
-    //*[@id=\"new_shortcut_bar_mn_active\"]
-    //*[@id="new_shortcut_bar_mn_active"]
     public String getUsername() {
         return driver.findElement(username).getText();
     }
