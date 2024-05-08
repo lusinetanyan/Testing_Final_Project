@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.security.InvalidParameterException;
 
@@ -14,7 +15,7 @@ public class LoginPage extends BasePage {
     private final By loginButton = By.id(LoginPageLocators.loginButtonID);
     private final By error = By.className(LoginPageLocators.errorClass);
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(RemoteWebDriver driver) {
         super(driver);
     }
 

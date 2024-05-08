@@ -1,16 +1,15 @@
 package pages;
 
 import locators.HomePageLocators;
-import locators.SearchResultsPageLocators;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class HomePage extends BasePage {
     private final By searchField = By.id(HomePageLocators.searchFieldID);
     private final By loginButton = By.xpath(HomePageLocators.loginXPath);
     private final By searchButton = By.xpath(HomePageLocators.searchButtonXPath);
 
-    public HomePage(WebDriver driver) {
+    public HomePage(RemoteWebDriver driver) {
         super(driver);
     }
 

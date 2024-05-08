@@ -3,6 +3,8 @@ package pages;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SecureAreaPageTest extends BaseTest {
