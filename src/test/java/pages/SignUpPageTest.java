@@ -1,20 +1,36 @@
 package pages;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-class SignUpPageTest extends BaseTest {
+class SignUpPageTest {
 
     private static SignUpPage signUpPage;
+    private static HomePage homePage;
+    private static WebDriver driver;
+
+    @BeforeClass
+    public static void setUp() {
+        System.setProperty("webdriver.chrome.drive", "chromedriver.exe");
+        driver = new ChromeDriver();
+        homePage = new HomePage(driver);
+    }
 
     @BeforeTest
-    public void navigateToSignUpPage() {
+    public void navigateToHomepage() {
+        driver.get("https://www.themoviedb.org");
         signUpPage = homePage.navigateToSignUpPage();
+    }
+
+    @AfterClass
+    public static void tearDown(){
+        driver.quit();
     }
 
     @Test

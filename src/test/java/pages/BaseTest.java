@@ -8,11 +8,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDateTime;
 
 
@@ -23,8 +25,10 @@ public class BaseTest {
 
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws MalformedURLException {
         System.setProperty("webdriver.chrome.drive", "chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
     }
