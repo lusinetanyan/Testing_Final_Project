@@ -7,8 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class HomePageTest extends BaseTest {
 
     @Test
-    void navigateToLoginPage() {
-       assertEquals(homePage.navigateToLoginPage().getClass(), LoginPage.class);
+    void navigateToTopRatedMoviesPage() {
+        assertEquals(homePage.navigateToTopRatedMoviesPage().getClass(), TopRatedMoviesPage.class);
+    }
+
+    @Test
+    void navigateToSignUpPage() {
+        assertEquals(homePage.navigateToSignUpPage().getClass(), SignUpPage.class);
     }
 
     @Test

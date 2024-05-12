@@ -1,0 +1,146 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SignUpTests" verbose="1">
+    <test name="EmptyEmail">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lusine"/>
+        <parameter name="passwordConfirm" value="lusine"/>
+        <parameter name="email" value=""/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_email"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="InvalidEmail">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lusine"/>
+        <parameter name="passwordConfirm" value="lusine"/>
+        <parameter name="email" value="lusine.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_email"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="EmptyUsername">
+        <parameter name="username" value=""/>
+        <parameter name="password" value="lusine"/>
+        <parameter name="passwordConfirm" value="lusine"/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="TakenUsername">
+        <parameter name="username" value="lusine_tanyan"/>
+        <parameter name="password" value="lusine"/>
+        <parameter name="passwordConfirm" value="lusine"/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="EmptyPassword_EmptyConfirmPassword">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value=""/>
+        <parameter name="passwordConfirm" value=""/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="EmptyPassword_NotEmptyConfirmPassword">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value=""/>
+        <parameter name="passwordConfirm" value="lus"/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="InvalidPassword_EmptyConfirmPassword">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lus"/>
+        <parameter name="passwordConfirm" value=""/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ValidPassword_EmptyConfirmPassword">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lusine"/>
+        <parameter name="passwordConfirm" value=""/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="InvalidPassword_Matching">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lus"/>
+        <parameter name="passwordConfirm" value="lus"/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="InvalidPassword_NotMatching">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lus"/>
+        <parameter name="passwordConfirm" value="lusine"/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="ValidPassword_NotMatching">
+        <parameter name="username" value="ferfregerdfgrw"/>
+        <parameter name="password" value="lusine"/>
+        <parameter name="passwordConfirm" value="lusine1"/>
+        <parameter name="email" value="lusine@mail.com"/>
+        <classes>
+            <class name="pages.SignUpPageTest">
+                <methods>
+                    <include name="test_username"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

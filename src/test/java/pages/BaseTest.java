@@ -3,33 +3,35 @@ package pages;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.Capabilities;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.LocalDateTime;
 
 
 public class BaseTest {
 
-    protected static RemoteWebDriver driver;
+    protected static WebDriver driver;
     protected static HomePage homePage;
-    static Capabilities chromeCapabilities = DesiredCapabilities.chrome();
 
 
     @BeforeAll
-    public static void setUp() throws MalformedURLException {
+    public static void setUp() {
         System.setProperty("webdriver.chrome.drive", "chromedriver.exe");
-        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeCapabilities);;
-        driver.get("https://www.themoviedb.org");
-
+        driver = new ChromeDriver();
         homePage = new HomePage(driver);
+    }
+
+    @BeforeEach
+    public void navigateToHomepage() {
+        driver.get("https://www.themoviedb.org");
     }
 
     @AfterAll
@@ -37,7 +39,7 @@ public class BaseTest {
         driver.quit();
     }
 
-    protected void screenshot(String message) {
+    protected static void screenshot(String message) {
         try {
             var camera = (TakesScreenshot) driver;
             File screenshot = camera.getScreenshotAs(OutputType.FILE);

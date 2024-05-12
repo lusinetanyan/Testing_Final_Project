@@ -8,12 +8,12 @@ import java.time.Duration;
 import java.util.List;
 
 public abstract class BasePage {
-    protected final RemoteWebDriver driver;
+    protected final WebDriver driver;
     private WebDriverWait wait;
 
-    public BasePage(RemoteWebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 15);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     protected List<WebElement> getAllElements(By locator, WebElement parentElement){

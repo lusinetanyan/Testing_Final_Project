@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SearchResultsPageTest extends BaseTest {
 
+
     @Test
     void singleValidSearchResult() {
         String movieTitle = "Pirates of the Caribbean: On Stranger Tides";
