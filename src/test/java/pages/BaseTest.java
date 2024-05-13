@@ -29,7 +29,6 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.drive", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
-        driver = new ChromeDriver();
         homePage = new HomePage(driver);
     }
 
