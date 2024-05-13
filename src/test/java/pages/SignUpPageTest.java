@@ -12,14 +12,13 @@ import static org.testng.Assert.assertTrue;
 class SignUpPageTest {
 
     private static SignUpPage signUpPage;
-    private static WebDriver driver = new ChromeDriver();
-    private static HomePage homePage;
+    private static WebDriver driver;
 
     @BeforeTest
     public void navigateToHomepage() {
         driver = new ChromeDriver();
         driver.get("https://www.themoviedb.org");
-        homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(driver);
         signUpPage = homePage.navigateToSignUpPage();
     }
 
