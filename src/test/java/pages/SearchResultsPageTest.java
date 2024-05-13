@@ -8,7 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SearchResultsPageTest extends BaseTest {
 
-
+    // the search result contains only one movie
+    // checks the title to be equal to the one provided in search
     @Test
     void singleValidSearchResult() {
         String movieTitle = "Pirates of the Caribbean: On Stranger Tides";
@@ -18,6 +19,8 @@ class SearchResultsPageTest extends BaseTest {
         assertTrue(results.get(0).equals(movieTitle));
     }
 
+    // the search result contains multiple movies
+    // checks the titles contain the search key
     @Test
     void multipleValidSearchResults() {
         String movieTitle = "forrest gump";
@@ -28,6 +31,7 @@ class SearchResultsPageTest extends BaseTest {
         results.stream().forEach(result -> assertTrue(result.toLowerCase().contains("forrest gump")));
     }
 
+    // the search result is empty given empty key
     @Test
     void emptySearchResults() {
         String movieTitle = "";
@@ -36,6 +40,7 @@ class SearchResultsPageTest extends BaseTest {
         assertEquals(0, results.size());
     }
 
+    // the search result is empty given key not matching to any movie
     @Test
     void noResults() {
         String movieTitle = "dfaereagtr";

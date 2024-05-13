@@ -23,6 +23,9 @@ class TopRatedMoviesPageTest extends BaseTest{
         topRatedMoviesPage = homePage.navigateToTopRatedMoviesPage();
     }
 
+    // apply rating sorting in ascending order
+    // get all the movie's ratings
+    // check the ratings are in ascending order
     @Test
     void sortByRatingAscending() {
         topRatedMoviesPage.sort(SortOption.RATING_ASC);
@@ -30,6 +33,9 @@ class TopRatedMoviesPageTest extends BaseTest{
         assertTrue(isAscending(ratings));
     }
 
+    // apply rating sorting in descending order
+    // get all the movie's ratings
+    // check the ratings are in descending order
     @Test
     void sortByRatingDescending() {
         topRatedMoviesPage.sort(SortOption.RATING_DESC);
@@ -37,6 +43,16 @@ class TopRatedMoviesPageTest extends BaseTest{
         assertFalse(isAscending(ratings));
     }
 
+
+    // NOTE: The filter functionality does not work correctly
+    // so results contain movies with release dates not contained
+    // in that interval. That is why, when an assertion error happens
+    // it is being caught and instead a screenshot is taken to show
+    // the case and the TEST PASSES.
+
+    // choose release date interval from the calendar
+    // get all the movie's release dates
+    // check the release dates are in that interval
     @Test
     void filterByReleaseDatesFromCalendar() {
         Calendar from = Calendar.getInstance();
@@ -65,6 +81,9 @@ class TopRatedMoviesPageTest extends BaseTest{
         }
     }
 
+    // choose release date interval by typing specific date in the input field
+    // get all the movie's release dates
+    // check the release dates are in that interval
     @Test
     void filterByReleaseDatesTyping() {
         Calendar from = Calendar.getInstance();
